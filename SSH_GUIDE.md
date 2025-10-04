@@ -2,7 +2,7 @@
 
 ## Informations de connexion
 
-**Serveur distant** : `rgallon@195.83.28.108`
+**Serveur distant** : `user@domain`
 
 ## Configuration SSH (recommandé)
 
@@ -17,9 +17,9 @@ nano ~/.ssh/config
 ### 2. Ajouter cette configuration
 
 ```
-Host server-analyzer
-    HostName 195.83.28.108
-    User rgallon
+Host serverAnalyse
+    HostName A DEFINIR
+    User user
     ServerAliveInterval 60
     ServerAliveCountMax 3
 ```
@@ -29,8 +29,8 @@ Host server-analyzer
 Maintenant vous pouvez simplement utiliser :
 
 ```bash
-ssh server-analyzer
-scp fichier.py server-analyzer:~/server-analyzer/
+ssh serverAnalyse
+scp fichier.py sserverAnalyse:~/server-analyzer/
 ```
 
 ## Configuration des clés SSH (fortement recommandé)
@@ -40,7 +40,7 @@ Pour éviter de taper le mot de passe à chaque fois :
 ### 1. Générer une clé SSH (si vous n'en avez pas)
 
 ```bash
-ssh-keygen -t ed25519 -C "server-analyzer"
+ssh-keygen -t ed25519 -C "serverAnalyse"
 # Appuyez sur Entrée pour accepter l'emplacement par défaut
 # Entrez un mot de passe (optionnel mais recommandé)
 ```
@@ -48,15 +48,15 @@ ssh-keygen -t ed25519 -C "server-analyzer"
 ### 2. Copier la clé sur le serveur
 
 ```bash
-ssh-copy-id rgallon@195.83.28.108
+ssh-copy-id user@domain
 # ou avec l'alias :
-ssh-copy-id server-analyzer
+ssh-copy-id serverAnalyse
 ```
 
 ### 3. Tester
 
 ```bash
-ssh server-analyzer
+ssh serverAnalyse
 # Vous ne devriez plus avoir besoin du mot de passe
 ```
 
@@ -66,45 +66,45 @@ ssh server-analyzer
 
 ```bash
 # Connexion simple
-ssh rgallon@195.83.28.108
+ssh user@domain
 
 # Connexion avec alias
-ssh server-analyzer
+ssh serveurAnalyse
 
 # Exécuter une commande sans se connecter
-ssh server-analyzer "ls -la ~/server-analyzer"
+ssh serveurAnalyse "ls -la ~/server-analyzer"
 
 # Se connecter et aller directement dans le dossier
-ssh -t server-analyzer "cd ~/server-analyzer && bash"
+ssh -t serveurAnalyse "cd ~/server-analyzer && bash"
 ```
 
 ### Transfert de fichiers
 
 ```bash
 # Envoyer un fichier
-scp fichier.py server-analyzer:~/server-analyzer/
+scp fichier.py serveurAnalyse:~/server-analyzer/
 
 # Envoyer un dossier
-scp -r dossier/ server-analyzer:~/server-analyzer/
+scp -r dossier/ serveurAnalyse:~/server-analyzer/
 
 # Récupérer un fichier
-scp server-analyzer:~/server-analyzer/data/results.db ./
+scp serveurAnalyse:~/server-analyzer/data/results.db ./
 
 # Récupérer un dossier
-scp -r server-analyzer:~/server-analyzer/logs/ ./local_logs/
+scp -r serveurAnalyse:~/server-analyzer/logs/ ./local_logs/
 
 # Synchronisation avec rsync (plus efficace)
-rsync -avz --progress server-analyzer:~/server-analyzer/data/ ./local_data/
+rsync -avz --progress serveurAnalyse:~/server-analyzer/data/ ./local_data/
 ```
 
 ### Édition de fichiers à distance
 
 ```bash
 # Éditer directement avec nano
-ssh server-analyzer "nano ~/server-analyzer/config.yaml"
+ssh serveurAnalyse "nano ~/server-analyzer/config.yaml"
 
 # Ou se connecter et éditer
-ssh server-analyzer
+ssh serveurAnalyse
 cd ~/server-analyzer
 nano config.yaml
 ```
@@ -113,16 +113,16 @@ nano config.yaml
 
 ```bash
 # Voir les logs en temps réel
-ssh server-analyzer "tail -f ~/server-analyzer/logs/scan_*.log"
+ssh serveurAnalyse "tail -f ~/server-analyzer/logs/scan_*.log"
 
 # Surveiller l'utilisation CPU/Mémoire
-ssh server-analyzer "htop"
+ssh serveurAnalyse "htop"
 
 # Voir l'espace disque
-ssh server-analyzer "df -h"
+ssh serveurAnalyse "df -h"
 
 # Voir les processus Python
-ssh server-analyzer "ps aux | grep python"
+ssh serveurAnalyse "ps aux | grep python"
 ```
 
 ## Sessions persistantes avec screen/tmux
@@ -133,7 +133,7 @@ Pour lancer des processus longs qui continuent après déconnexion :
 
 ```bash
 # Se connecter au serveur
-ssh server-analyzer
+ssh serveurAnalyse
 
 # Démarrer une session screen
 screen -S scan
@@ -149,7 +149,7 @@ python scripts/run_scan.py
 exit
 
 # Plus tard, se reconnecter et réattacher
-ssh server-analyzer
+ssh serveurAnalyse
 screen -r scan
 
 # Lister toutes les sessions screen
@@ -163,7 +163,7 @@ screen -X -S scan quit
 
 ```bash
 # Se connecter au serveur
-ssh server-analyzer
+ssh serveurAnalyse
 
 # Démarrer une session tmux
 tmux new -s scan
@@ -185,7 +185,7 @@ tmux ls
 ## Exécution en arrière-plan avec nohup
 
 ```bash
-ssh server-analyzer
+ssh serveurAnalyse
 
 cd ~/server-analyzer
 source venv/bin/activate
@@ -218,7 +218,7 @@ while true; do
     echo "=== Server Analyzer - Status ==="
     echo ""
     
-    ssh server-analyzer << 'EOF'
+    ssh serveurAnalyse << 'EOF'
 cd ~/server-analyzer
 echo "📊 Processus Python actifs:"
 ps aux | grep python | grep -v grep
@@ -240,13 +240,13 @@ done
 
 ```bash
 # Tester la connectivité
-ping 195.83.28.108
+ping IP
 
 # Tester SSH avec verbosité
-ssh -v rgallon@195.83.28.108
+ssh -v user@domain
 
 # Vérifier le port SSH
-nc -zv 195.83.28.108 22
+nc -zv IP PORT
 ```
 
 ### Clés SSH ne fonctionnent pas
