@@ -31,7 +31,7 @@ cat << 'EOF'
    # Lancer les tests
    pytest
 
-2️⃣  DÉPLOYER SUR SERVEUR DISTANT (rgallon@195.83.28.108)
+2️⃣  DÉPLOYER SUR SERVEUR DISTANT (user@domain)
    
    # Déploiement automatique
    ./deploy.sh
@@ -42,7 +42,7 @@ cat << 'EOF'
 3️⃣  SUR LE SERVEUR (après déploiement)
    
    # Se connecter
-   ssh rgallon@195.83.28.108
+   ssh user@domain
    
    # Aller dans le projet
    cd ~/server-analyzer
@@ -85,16 +85,16 @@ cat << 'EOF'
 
 ⚙️  CONFIGURATION SERVEUR
 
-  Serveur:      rgallon@195.83.28.108
+  Serveur:      user@domain
   Chemin:       ~/server-analyzer
   
   ⚠️  IMPORTANT: Avant le premier scan
   
   1. Identifier les chemins à scanner sur le serveur:
-     ssh rgallon@195.83.28.108 "df -h"
+     ssh user@domain "df -h"
      
   2. Modifier config.yaml avec les vrais chemins:
-     ssh rgallon@195.83.28.108
+     ssh user@domain
      cd ~/server-analyzer
      nano config.yaml
      
@@ -112,8 +112,8 @@ cat << 'EOF'
     ./connect.sh                  Se connecte au serveur
     
   SSH:
-    ssh rgallon@195.83.28.108                        Connexion
-    scp config.yaml rgallon@195.83.28.108:~/...      Copier fichier
+    ssh user@domain                        Connexion
+    scp config.yaml user@domain:~/...      Copier fichier
     ssh rgallon@... "tail -f ~/...logs/scan*.log"    Voir logs
     
   Sur serveur:
