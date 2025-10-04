@@ -1,4 +1,9 @@
-# 📖 Documentation Complète - Server Analyzer
+# SERVER ANALYZER
+
+![Production](https://img.shields.io/badge/Status-Production-success?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.0-blue?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3.8+-yellow?style=for-the-badge&logo=python)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 **Version** : 1.0  
 **Date** : Octobre 2025  
@@ -1555,65 +1560,14 @@ pytest --cov=src --cov-report=html
 | `tests/test_integration.py` | 8 | Intégration complète |
 | **Total** | **51** | **~85%** |
 
-### Documentation complémentaire
-
-| Document | Contenu |
-|----------|---------|
-| [`GUIDE_DEMARRAGE.md`](GUIDE_DEMARRAGE.md) | Guide de démarrage complet |
-| [`SSH_GUIDE.md`](SSH_GUIDE.md) | Configuration SSH détaillée |
-| [`SERVEUR_CONFIG.md`](SERVEUR_CONFIG.md) | Configuration serveur production |
-| [`DASHBOARD_QUICKSTART.md`](DASHBOARD_QUICKSTART.md) | Guide rapide dashboard |
-| [`CHANGELOG.md`](CHANGELOG.md) | Historique des versions |
-| [`CAHIER_CHARGES.md`](../CAHIER_CHARGES.md) | Cahier des charges projet |
-| `PHASE*_RAPPORT.md` | Rapports techniques par phase |
-
-### Feuille de route
-
-#### ✅ Phase 0 : Setup (Terminée)
-- Structure projet
-- Environnement Python
-- Configuration
-
-#### ✅ Phase 1 : Core (Terminée)
-- Scanner parallèle
-- Base SQLite
-- Logging
-
-#### ✅ Phase 2 : Statistiques (Terminée)
-- Agrégations
-- Détection anomalies
-- Optimisations SQL
-
-#### ✅ Phase 3 : Dashboard (Terminée)
-- Interface Streamlit
-- 4 pages fonctionnelles
-- Visualisations Plotly
-
-#### 🔜 Phase 4 : Tests & Documentation (En cours)
-- Tests unitaires complets
-- Documentation utilisateur
-- Guide déploiement
-
-#### 🔮 Améliorations futures
-- Détection fichiers corrompus
-- Suggestions de nettoyage intelligentes
-- Intégration avec systèmes de backup
-- API REST
-- Authentification multi-utilisateurs
-
----
-
-## 📞 Support et Contact
 
 ### Ressources
 
-- **Documentation technique** : Voir dossier `docs/` ou fichiers `PHASE*_RAPPORT.md`
-- **Issues GitHub** : Pour signaler bugs ou demandes de fonctionnalités
-- **Email support** : support@serveur-analyzer.com (fictif)
+- **Email support** : regis.gallon@lecnam.net
 
 ### Contribuer
 
-Les contributions sont les bienvenues ! Voir `CONTRIBUTING.md` (à créer).
+Les contributions sont les bienvenues ! Voir `CONTRIBUTING.md`.
 
 ### Licence
 
@@ -1621,7 +1575,6 @@ Ce projet est sous licence MIT. Voir fichier [`LICENSE`](LICENSE).
 
 ---
 
-**Développé avec ❤️ par GitHub Copilot**  
 **Documentation mise à jour le 4 octobre 2025**
 
 *Pour toute question, consulter d'abord [`GUIDE_DEMARRAGE.md`](GUIDE_DEMARRAGE.md) ou [`DASHBOARD_QUICKSTART.md`](DASHBOARD_QUICKSTART.md).*
