@@ -5,10 +5,10 @@
 set -e  # Arrêter en cas d'erreur
 
 # Configuration
-REMOTE_USER="rgallon"
+REMOTE_USER="user"
 REMOTE_HOST="A DEFINIR"
 REMOTE_PATH="~/server-analyzer"
-LOCAL_PATH="/home/rgallon/Documents/RECHERCHE/GestionServeurIntechmer/server-analyzer"
+LOCAL_PATH="~/server-analyzer"
 
 echo "========================================="
 echo "Déploiement Server Analyzer"
