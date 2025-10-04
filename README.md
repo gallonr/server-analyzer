@@ -247,9 +247,9 @@ pip install -r requirements.txt
 Créer `~/.ssh/config` sur votre machine locale :
 
 ```
-Host serveur-intechmer
-    HostName 195.83.28.108
-    User rgallon
+Host serveurAnalyse
+    HostName A DEFINIR
+    User user
     IdentityFile ~/.ssh/id_rsa
     ServerAliveInterval 60
     ServerAliveCountMax 3
@@ -257,7 +257,7 @@ Host serveur-intechmer
 
 Utilisation simplifiée :
 ```bash
-ssh serveur-intechmer
+ssh serveurAnalyse
 ```
 
 Plus de détails dans [`SSH_GUIDE.md`](SSH_GUIDE.md).
