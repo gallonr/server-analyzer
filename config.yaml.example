@@ -1,0 +1,143 @@
+# ============================================================================
+# Configuration - Analyse Serveur 28 To
+# ============================================================================
+
+# Chemins racine à analyser
+# Liste de chemins absolus. Chaque chemin sera scanné récursivement.
+root_paths:
+  - /data/serveur
+  - /mnt/storage
+  # Ajouter d'autres chemins si nécessaire
+
+# ============================================================================
+# EXCLUSIONS
+# ============================================================================
+exclusions:
+  # Dossiers à ignorer (patterns glob)
+  directories:
+    - /proc           # Système Linux
+    - /sys            # Système Linux
+    - /dev            # Périphériques
+    - /tmp            # Temporaires
+    - /run            # Runtime
+    - "*/.git/*"      # Dépôts Git
+    - "*/.svn/*"      # Dépôts SVN
+    - "*/node_modules/*"  # Node.js
+    - "*/__pycache__/*"   # Python cache
+    - "*/.venv/*"     # Python venv
+    
+  # Extensions à ignorer (sans le point)
+  extensions:
+    - tmp
+    - temp
+    - cache
+    - swp
+    - swo
+    - bak
+    - lock
+
+# ============================================================================
+# PERFORMANCE (Calculateur 80 cœurs)
+# ============================================================================
+performance:
+  # Nombre de workers parallèles
+  # Recommandation : 60-80 pour calculateur 80 cœurs
+  # Ajuster selon charge système
+  num_workers: 80
+  
+  # Taille des batchs pour insertion DB
+  # 50000 = bon compromis performance/mémoire
+  batch_size: 50000
+  
+  # Taille queue inter-processus
+  # 200000 adapté pour 80 workers
+  queue_size: 200000
+  
+  # Intervalle de checkpoint (secondes)
+  # Sauvegarde état toutes les N secondes
+  checkpoint_interval: 300
+
+# ============================================================================
+# LIMITES (optionnel)
+# ============================================================================
+limits:
+  # Profondeur maximale de scan (null = illimité)
+  max_depth: null
+  
+  # Nombre maximum de fichiers (null = illimité)
+  max_files: null
+
+# ============================================================================
+# ALERTES
+# ============================================================================
+alerts:
+  # Seuil fichiers volumineux (bytes)
+  # 10 Go = 10737418240 bytes
+  large_file_threshold: 10737418240
+  
+  # Seuil fichiers anciens (jours)
+  # Fichiers non modifiés depuis N jours
+  old_file_threshold: 730  # 2 ans
+
+# ============================================================================
+# BASE DE DONNÉES
+# ============================================================================
+database:
+  # Chemin base SQLite
+  path: "data/server_analysis.db"
+  
+  # Paramètres PRAGMA SQLite
+  pragma:
+    journal_mode: WAL
+    synchronous: NORMAL
+    cache_size: -40000  # 40 MB
+    page_size: 4096
+    temp_store: MEMORY
+    mmap_size: 268435456  # 256 MB
+
+# ============================================================================
+# LOGGING
+# ============================================================================
+logging:
+  # Niveau de log (DEBUG, INFO, WARNING, ERROR)
+  level: INFO
+  
+  # Chemin fichier log (supporte {timestamp})
+  file: "logs/scan_{timestamp}.log"
+  
+  # Format des logs
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+  # Rotation des logs
+  rotation:
+    max_bytes: 104857600  # 100 MB
+    backup_count: 10
+
+# ============================================================================
+# DASHBOARD
+# ============================================================================
+dashboard:
+  # Host (0.0.0.0 = accessible depuis réseau)
+  host: "0.0.0.0"
+  
+  # Port
+  port: 8501
+  
+  # Thème (light, dark)
+  theme: "light"
+  
+  # Titre
+  title: "Server Analysis Dashboard"
+
+# ============================================================================
+# ADVANCED (optionnel)
+# ============================================================================
+advanced:
+  # Suivre les liens symboliques (attention aux boucles)
+  follow_symlinks: false
+  
+  # Calculer checksums (MD5) - TRÈS LENT, désactivé par défaut
+  compute_checksums: false
+  
+  # Activer mode debug
+  debug: false

@@ -1,0 +1,35 @@
+# Configuration pour test local
+# Fichier: config_test_local.yaml
+
+# Chemins racine à scanner (modifiés pour test local)
+root_paths:
+  - /tmp/test_scan_demo
+
+# Base de données
+database:
+  path: data/test_local.db
+
+# Performance
+performance:
+  num_workers: 4  # Réduit pour test local
+  batch_size: 100
+  queue_size: 1000
+  checkpoint_interval: 300  # secondes
+
+# Exclusions
+exclusions:
+  directories:
+    - '*/cache/*'
+    - '*/.git/*'
+    - '*/node_modules/*'
+  extensions:
+    - 'cache'
+    - 'log'
+
+# Logging
+logging:
+  level: INFO
+  file: logs/scan_{timestamp}.log
+  rotation:
+    max_bytes: 10485760  # 10 MB
+    backup_count: 5

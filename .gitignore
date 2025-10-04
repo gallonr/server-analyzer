@@ -1,0 +1,280 @@
+# ==============================================================================
+# Server Analyzer - .gitignore
+# ==============================================================================
+# Ce fichier définit les exclusions pour le dépôt Git
+# Structure : Python → Projet → IDE → OS → Documentation → Sécurité
+# ==============================================================================
+
+# ==============================================================================
+# PYTHON - Environnement et artefacts
+# ==============================================================================
+
+# Bytecode et compilation
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyo
+
+# Distribution et packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Environnements virtuels
+venv/
+env/
+ENV/
+.venv
+.virtualenv
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Logs d'installation
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Tests et couverture de code
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.cover
+.hypothesis/
+.tox/
+nosetests.xml
+coverage.xml
+*.coveragerc
+
+# Type checking et linting
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+
+# ==============================================================================
+# PROJET SPÉCIFIQUE - Server Analyzer
+# ==============================================================================
+
+# Bases de données (données sensibles/volumineuses)
+data/
+!data/.gitkeep
+!data/checkpoints/.gitkeep
+!data/exports/.gitkeep
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Logs d'exécution
+logs/
+!logs/.gitkeep
+*.log
+
+# Configuration locale (contient chemins serveur spécifiques)
+config.yaml
+
+# Fichiers temporaires de scan
+*.checkpoint
+*.tmp
+*.temp
+
+# Profiling
+*.prof
+*.lprof
+
+# ==============================================================================
+# STREAMLIT - Dashboard
+# ==============================================================================
+
+# Secrets (credentials, tokens)
+.streamlit/secrets.toml
+
+# Cache Streamlit
+.streamlit/cache/
+
+# ==============================================================================
+# IDE ET ÉDITEURS
+# ==============================================================================
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm / IntelliJ
+.idea/
+*.iml
+*.iws
+.idea_modules/
+
+# Vim
+*.swp
+*.swo
+*~
+.*.sw?
+
+# Emacs
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ==============================================================================
+# SYSTÈME D'EXPLOITATION
+# ==============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+.nfs*
+
+# ==============================================================================
+# DOCUMENTATION DE DÉVELOPPEMENT (non nécessaire pour fonctionnement)
+# ==============================================================================
+
+# Rapports de phases de développement
+PHASE*_RAPPORT.md
+PHASE*_CHECKLIST.md
+PHASE*_CHECKLIST.txt
+PHASE*_RESUME.md
+PHASE*_COMPLETE.md
+PHASE*_INDEX.md
+PHASE*_README.md
+
+# Documentation technique interne
+CACHE_*.md
+DUPLICATE_*.md
+DUPLICATES_*.md
+MIGRATION_CACHE.md
+RAPPORT_FINAL_CACHE.md
+SYNTHESE_CACHE.md
+*_OPTION_*.md
+CHANGELOG_*.md
+
+# Configuration serveur spécifique (documentation locale)
+SERVEUR_CONFIG.md
+
+# Scripts de test (documentation)
+TEST_*.sh
+
+# Fichiers README alternatifs
+README_COMPLET.md
+README.md.bak
+
+# Documentation générée
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# ==============================================================================
+# SÉCURITÉ - Clés et credentials
+# ==============================================================================
+
+# Clés SSH (NE JAMAIS COMMITER)
+*.pem
+*.key
+*.ppk
+id_rsa
+id_rsa.pub
+id_dsa
+id_dsa.pub
+id_ecdsa
+id_ecdsa.pub
+id_ed25519
+id_ed25519.pub
+server-analyzer
+server-analyzer.pub
+
+# Fichiers de credentials
+.env
+.env.*
+*.credentials
+secrets.yml
+secrets.yaml
+
+# ==============================================================================
+# FICHIERS DIVERS
+# ==============================================================================
+
+# Archives et compression
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bz2
+*.gz
+
+# Sauvegardes
+*.bak
+*.backup
+*.old
+*.orig
+*~
+
+# Jupyter Notebooks (si non utilisés)
+.ipynb_checkpoints/
+*.ipynb
+
+# Fichiers temporaires système
+*.tmp
+*.temp
+*.cache
+
+# ==============================================================================
+# EXCEPTIONS (fichiers à garder malgré les règles ci-dessus)
+# ==============================================================================
+
+# Scripts essentiels au déploiement
+!deploy.sh
+!connect.sh
+!activate.sh
+!setup_venv.sh
+
+# Fichiers d'exemple
+!config.yaml.example
+!.env.example

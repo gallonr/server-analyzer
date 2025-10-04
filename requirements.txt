@@ -1,0 +1,30 @@
+# Core Python
+python-dateutil>=2.8.2
+
+# Base de données et data
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Interface web
+streamlit>=1.28.0
+plotly>=5.17.0
+
+# Configuration et logging
+pyyaml>=6.0
+python-dotenv>=1.0.0
+
+# Utilitaires
+tqdm>=4.66.0
+humanize>=4.8.0
+
+# Exports
+openpyxl>=3.1.0
+XlsxWriter>=3.1.0
+
+# Tests
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-mock>=3.11.0
+
+# Optionnel - Performance
+# pyarrow>=13.0.0
