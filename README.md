@@ -5,10 +5,6 @@
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow?style=for-the-badge&logo=python)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-**Version** : 1.0  
-**Date** : Octobre 2025  
-**Statut** : Production Ready
-
 ---
 
 ## 📋 Table des Matières
