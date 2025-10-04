@@ -6,7 +6,7 @@ set -e  # Arrêter en cas d'erreur
 
 # Configuration
 REMOTE_USER="rgallon"
-REMOTE_HOST="195.83.28.108"
+REMOTE_HOST="A DEFINIR"
 REMOTE_PATH="~/server-analyzer"
 LOCAL_PATH="/home/rgallon/Documents/RECHERCHE/GestionServeurIntechmer/server-analyzer"
 
