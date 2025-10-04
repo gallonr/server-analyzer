@@ -48,8 +48,8 @@ Le Server Analyzer est un programme Python performant capable de :
 
 ### Serveur de production
 
-**Serveur distant** : `rgallon@195.83.28.108`  
-**Caractéristiques** : 80 cœurs CPU, 16-32 Go RAM, Python 3.12
+**Serveur distant** : `user@domaine`  
+**Caractéristiques** : 20-80 cœurs CPU, 16-32 Go RAM, Python 3.12
 
 ---
 
@@ -203,7 +203,7 @@ pip install <package>
 
 ```bash
 # 1. Se connecter au serveur
-ssh rgallon@195.83.28.108
+ssh user@domaine
 
 # 2. Aller dans le dossier
 cd ~/server-analyzer
@@ -332,7 +332,7 @@ source venv/bin/activate
 streamlit run src/dashboard/app.py
 ```
 
-**URL** : `http://localhost:8501` (local) ou `http://195.83.28.108:8501` (serveur)
+**URL** : `http://localhost:8501` (local)
 
 ### Accès distant au dashboard
 
@@ -340,7 +340,7 @@ Si le dashboard tourne sur le serveur, créez un tunnel SSH :
 
 ```bash
 # Sur votre machine locale
-ssh -L 8501:localhost:8501 rgallon@195.83.28.108
+ssh -L 8501:localhost:8501 user@domaine
 
 # Puis ouvrir dans votre navigateur
 # http://localhost:8501
@@ -651,7 +651,7 @@ python scripts/run_scan.py --resume
 
 **Symptôme** :
 ```
-ssh: connect to host 195.83.28.108 port 22: Connection refused
+ssh: connect to host 192.168.1.158 port 22: Connection refused
 ```
 
 **Solutions** :
@@ -687,7 +687,7 @@ ssh: connect to host 195.83.28.108 port 22: Connection refused
 2. **Déploiement serveur** :
    ```bash
    ./deploy.sh
-   ssh rgallon@195.83.28.108
+   ssh user@domaine
    cd ~/server-analyzer
    source venv/bin/activate
    nano config.yaml  # Configurer les chemins
@@ -703,7 +703,7 @@ ssh: connect to host 195.83.28.108 port 22: Connection refused
 4. **Visualisation** :
    ```bash
    # Tunnel SSH depuis votre machine locale
-   ssh -L 8501:localhost:8501 rgallon@195.83.28.108
+   ssh -L 8501:localhost:8501 user@domaine
    
    # Sur le serveur
    ./scripts/start_dashboard.sh
