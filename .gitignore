@@ -278,3 +278,14 @@ secrets.yaml
 # Fichiers d'exemple
 !config.yaml.example
 !.env.example
+SUMMARY_BUGFIX.md
+CHANGELOG.md
+DIAGNOSTIC_POST_MIGRATION.md
+INCIDENT_REPORT_20251005.txt
+migrate_db.sh
+QUICKFIX.sh
+QUICKFIX_README.md
+resume_scan.sh
+scripts/migrate_db_schema.py
+scripts/resume_failed_scan.py
+BUGFIX_OVERFLOW.md
